@@ -9,7 +9,7 @@ We will add example workflows to this section as they are tested and verified.
 
 ### AWS Inspector
 
-This example action will run every day at midnight, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from the [AWS Inspctor](https://aws.amazon.com/inspector/) run inside your AWS environment.
+This example action will run every day at midnight, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from the [AWS Inspector](https://aws.amazon.com/inspector/) run inside your AWS environment.
 
 For this example, you will need to configure [encrpyted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
 
