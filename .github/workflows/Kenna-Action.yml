@@ -3,7 +3,6 @@ name: Kenna-Action
 on:
   push
   
-  # Run Every Night At Midnight
   schedule:
   - cron: "0 0 * * *"
   
