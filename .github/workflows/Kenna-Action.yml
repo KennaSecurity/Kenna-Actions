@@ -19,3 +19,5 @@ jobs:
         ruby-version: 2.6
     - name: Install dependencies
       run: bundle install
+    - name:  Run Toolkit
+      run : exec bundle exec ruby toolkit.rb
