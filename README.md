@@ -47,7 +47,8 @@ jobs:
         kenna_api_key=: "${{secrets.kenna_api_key}}"
 ```
 
-For demonstration purposes, this example runs in this repo hourly:
+For demonstration purposes, this example runs in this repo hourly.
+
 ![Kenna-Action](https://github.com/KennaPublicSamples/Kenna-Action/workflows/Kenna-Action/badge.svg)
 
 ## More Information
