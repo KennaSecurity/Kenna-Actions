@@ -20,4 +20,4 @@ jobs:
     - name: Install dependencies
       run: bundle install
     - name:  Run Toolkit
-      run : exec bundle exec ruby toolkit.rb  task=aws_inspector aws_access_key="$aws_access_key" aws_secret_key="$aws_secret_key" kenna_api_host=api.kennasecurity.com kenna_connector_id=156863 kenna_api_key="$kenna_api_key" -v
+      run : exec bundle exec ruby toolkit.rb  task=aws_inspector aws_access_key=${{aws_access_key}} aws_secret_key=${{aws_secret_key}} kenna_api_host=api.kennasecurity.com kenna_connector_id=156863 kenna_api_key=${{kenna_api_key}} -v
