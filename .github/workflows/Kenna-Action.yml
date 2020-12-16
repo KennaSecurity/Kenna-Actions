@@ -1,11 +1,8 @@
 name: Kenna-Action
 
 on:
-  push:
-    branches: [ $default-branch ]
-  pull_request:
-    branches: [ $default-branch ]
-
+  push
+  
 jobs:
   test:
     runs-on: ubuntu-latest
