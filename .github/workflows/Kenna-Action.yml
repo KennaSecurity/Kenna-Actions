@@ -3,6 +3,10 @@ name: Kenna-Action
 on:
   push
   
+  # Run Every Night At Midnight
+  schedule:
+  - cron: "0 0 * * *"
+  
 jobs:
    Kenna-Action:
     runs-on: ubuntu-latest
@@ -12,13 +16,11 @@ jobs:
       with:
         repository: KennaPublicSamples/toolkit
     - name: Set up Ruby
-    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-    # change this to (see https://github.com/ruby/setup-ruby#versioning):
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.6
     - name: Install dependencies
-      run: bundle install
+      run: bundle install --without development test
     - name:  Run Toolkit
       run : exec bundle exec ruby toolkit.rb  task=aws_inspector aws_access_key=${aws_access_key} aws_secret_key=${aws_secret_key} kenna_api_host=api.kennasecurity.com kenna_connector_id=156863 kenna_api_key=${kenna_api_key} -v
       env:
