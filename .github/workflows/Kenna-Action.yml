@@ -24,5 +24,5 @@ jobs:
       env:
         aws_access_key: "${{secrets.aws_access_key}"
         aws_secret_key=: "${{secrets.aws_secret_key}"
-        kenna_api_key=: "${{secrets.kenna_api_key"
+        kenna_api_key=: "${{secrets.kenna_api_key}}"
       
