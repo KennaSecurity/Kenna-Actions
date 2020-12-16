@@ -1,8 +1,8 @@
 name: Kenna-Action
 
-on:  
+on:
   schedule:
-  - cron: "0 0 * * *"
+    - cron: "0 * * * *"
   
 jobs:
    Kenna-Action:
