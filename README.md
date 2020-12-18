@@ -49,6 +49,8 @@ jobs:
 
 For demonstration purposes, this example runs in this repo hourly.
 
+![Kenna-Inspector-Action](https://github.com/KennaPublicSamples/Kenna-Action/workflows/Kenna-Action/badge.svg)
+
 ### Important Considrations
 
 While this repository is public to demo the action, we strongly suggest you run this in a [private repository](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/setting-repository-visibility) to stop publicly exposing the logs which may contain hostnames and vulnerability data.
