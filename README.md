@@ -9,7 +9,7 @@ We will add more example workflows to this section as they are tested and verifi
 
 ### AWS Inspector
 
-This example action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from the [AWS Inspector](https://aws.amazon.com/inspector/) run inside your AWS environment.
+As configured this action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from the [AWS Inspector](https://aws.amazon.com/inspector/) run inside your AWS environment.
 
 For this example, you will need to configure [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
 
@@ -53,7 +53,7 @@ For demonstration purposes, this example runs in this repo hourly.
 
 ### Security Scorecard
 
-This example action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [Security Scorecard](https://www.securityscorecard.com/).
+As configured this action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [Security Scorecard](https://www.securityscorecard.com/).
 
 For this example, you will need to configure [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
 
