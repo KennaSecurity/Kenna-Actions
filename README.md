@@ -5,7 +5,7 @@ This is a GitHub Action for invoking the [Kenna Toolkit](https://github.com/Kenn
 
 ## Example Workflows
 
-We will add example workflows to this section as they are tested and verified.
+We will add more example workflows to this section as they are tested and verified.
 
 ### AWS Inspector
 
