@@ -40,11 +40,6 @@ jobs:
         nozomi_user=: "${{secrets.nozomi_user}}"
         nozomi_password=: "${{secrets.nozomi_password}}"
         kenna_api_key=: "${{secrets.kenna_api_key}}"
-    - name:  Run Bitsight
-      run : exec bundle exec ruby toolkit.rb task=bitsight bitsight_api_key=${secrets.bitsight_api_key} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
-      env:
-        bitsight_api_key=: "${{secrets.bitsight_api_key}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
     - name:  Run MS Defender ATP
       run : exec bundle exec rubytask=ms_defender_atp atp_client_id=${atp_client_id}  atp_client_secret=${atp_client_secret} atp_tenant_id=${atp_tenant_id} batch_page_size=1 kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
       env:
