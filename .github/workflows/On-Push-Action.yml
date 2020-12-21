@@ -40,4 +40,9 @@ jobs:
         nozomi_user=: "${{secrets.nozomi_user}}"
         nozomi_password=: "${{secrets.nozomi_password}}"
         kenna_api_key=: "${{secrets.kenna_api_key}}"
+    - name:  Run Bitsight
+      run : exec bundle exec ruby toolkit.rb task=bitsight bitsight_api_key=${secrets.bitsight_api_key} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
+      env:
+        bitsight_api_key=: "${{secrets.bitsight_api_key}}"
+        kenna_api_key=: "${{secrets.kenna_api_key}}"
         

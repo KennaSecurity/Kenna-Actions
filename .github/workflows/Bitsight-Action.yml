@@ -1,8 +1,8 @@
-name: RiskIQ-Action
+name: Bitsight-Action
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 * * * *"
     # Schedule Configuration From Github Actions. 
     # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#scheduled-events
   
@@ -21,8 +21,7 @@ jobs:
     - name: Install dependencies
       run: bundle install --without development test
     - name:  Run Toolkit
-      run : exec bundle exec ruby toolkit.rb task=riskiq riskiq_api_key=${riskiq_api_key} riskiq_api_secret=${riskiq_api_secret} riskiq_create_ssl_misconfigs=NO riskiq_create_open_ports=YES riskiq_create_cves=YES kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
+      run : exec bundle exec ruby toolkit.rb task=bitsight bitsight_api_key=${secrets.bitsight_api_key} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
       env:
-        riskiq_api_key=: "${{secrets.riskiq_api_key}}"
-        riskiq_api_secret=: "${{secrets.riskiq_api_secret}}"
+        bitsight_api_key=: "${{secrets.bitsight_api_key}}"
         kenna_api_key=: "${{secrets.kenna_api_key}}"
