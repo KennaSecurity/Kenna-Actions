@@ -7,6 +7,46 @@ This is a GitHub Action for invoking the [Kenna Toolkit](https://github.com/Kenn
 
 We will add more example workflows to this section as they are tested and verified.
 
+### AWS GurardDuty
+
+This example action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from the [AWS GuardDuty][(https://aws.amazon.com/inspector/](https://aws.amazon.com/guardduty/)) run inside your AWS environment.
+
+For this example, you will need to configure [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
+
+- aws_access_key
+- aws_secret_key
+- kenna_api_key
+
+```yaml
+
+name: Inspector-Action
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  
+jobs:
+   Kenna-Action:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Toolkit Repo
+      uses: actions/checkout@v2
+      with:
+        repository: KennaPublicSamples/toolkit
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+    - name: Install dependencies
+      run: bundle install --without development test
+    - name:  Run Toolkit
+      run : exec bundle exec ruby toolkit.rb  task=aws_guardduty aws_access_key=${aws_access_key} aws_secret_key=${aws_secret_key} kenna_api_host=api.kennasecurity.com kenna_connector_id=156863 kenna_api_key=${kenna_api_key} -v
+      env:
+        aws_access_key: "${{secrets.aws_access_key}}"
+        aws_secret_key=: "${{secrets.aws_secret_key}}"
+        kenna_api_key=: "${{secrets.kenna_api_key}}"
+```
+
 ### AWS Inspector
 
 This example action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from the [AWS Inspector](https://aws.amazon.com/inspector/) run inside your AWS environment.
@@ -68,8 +108,6 @@ name: Security-Scorecard-Action
 on:
   schedule:
     - cron: "0 * * * *"
-    # Schedule Configuration From Github Actions. 
-    # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#scheduled-events
   
 jobs:
    Kenna-Action:
