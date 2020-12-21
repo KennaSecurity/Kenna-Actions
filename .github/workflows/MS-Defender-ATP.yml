@@ -1,10 +1,13 @@
-name: Snyk-Action
+name: MS-Defender-ATP-Action
 
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "40 * * * *"
     # Schedule Configuration From Github Actions. 
     # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#scheduled-events
+  push:
+    branches:
+      - main
   
 jobs:
    Kenna-Action:
@@ -21,7 +24,9 @@ jobs:
     - name: Install dependencies
       run: bundle install --without development test
     - name:  Run Toolkit
-      run : exec bundle exec ruby toolkit.rb task=snyk snyk_api_secret=${snyk_api_secret} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
+      run : exec bundle exec rubytask=ms_defender_atp atp_client_id=${atp_client_id}  atp_client_secret=${atp_client_secret} atp_tenant_id=${atp_tenant_id} batch_page_size=1 kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
       env:
-        snyk_api_secret=: "${{secrets.snyk_api_secret}}"
+        atp_client_id=: "${{secrets.atp_client_id}}"
+        atp_client_secret=: "${{secrets.atp_client_secret}}"
+        atp_tenant_id=: "${{secrets.atp_tenant_id}}"
         kenna_api_key=: "${{secrets.kenna_api_key}}"
