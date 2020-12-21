@@ -171,6 +171,46 @@ jobs:
         kenna_api_key=: "${{secrets.kenna_api_key}}"
 ```
 
+## Snyk
+
+As configured this action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [Snyk](https://snyk.io/).
+
+For this example, you will need to configure [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
+
+- snyk_api_secret
+- kenna_api_key
+
+```yaml
+name: Snyk-Action
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+    # Schedule Configuration From Github Actions. 
+    # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#scheduled-events
+  
+jobs:
+   Kenna-Action:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Toolkit Repo
+      uses: actions/checkout@v2
+      with:
+        repository: KennaPublicSamples/toolkit
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+    - name: Install dependencies
+      run: bundle install --without development test
+    - name:  Run Toolkit
+      run : exec bundle exec ruby toolkit.rb task=snyk snyk_api_secret=${snyk_api_secret} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
+      env:
+        snyk_api_secret=: "${{secrets.snyk_api_secret}}"
+        kenna_api_key=: "${{secrets.kenna_api_key}}"
+
+```
+
 ## Important Considrations
 
 While this repository is public to demo the action, we strongly suggest you run this in a [private repository](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/setting-repository-visibility) to stop publicly exposing the logs which may contain hostnames and vulnerability data.
@@ -183,7 +223,6 @@ Build Actions For:
 - Expanse
 - MS Defender ATP
 - Nozomi
-- Snyk
 
 ## More Information
 
