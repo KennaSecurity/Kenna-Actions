@@ -130,6 +130,49 @@ jobs:
         kenna_api_key=: "${{secrets.kenna_api_key}}"
 ```
 
+## Microsoft Defender ATP
+
+As configured this action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [Snyk](https://snyk.io/).
+
+For this example, you will need to configure [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
+
+- atp_client_id
+- atp_client_secret
+- atp_tenant_id
+- kenna_api_key
+
+```yaml
+name: MS-Defender-ATP-Action
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+    # Schedule Configuration From Github Actions. 
+    # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#scheduled-events
+  
+jobs:
+   Kenna-Action:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Toolkit Repo
+      uses: actions/checkout@v2
+      with:
+        repository: KennaPublicSamples/toolkit
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+    - name: Install dependencies
+      run: bundle install --without development test
+    - name:  Run Toolkit
+      run : exec bundle exec rubytask=ms_defender_atp atp_client_id=${atp_client_id}  atp_client_secret=${atp_client_secret} atp_tenant_id=${atp_tenant_id} batch_page_size=1 kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
+      env:
+        atp_client_id=: "${{secrets.atp_client_id}}"
+        atp_client_secret=: "${{secrets.atp_client_secret}}"
+        atp_tenant_id=: "${{secrets.atp_tenant_id}}"
+        kenna_api_key=: "${{secrets.kenna_api_key}}"
+```
+
 ## Nozomi Networks
 
 As configured this action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [Nozomi Networks](https://www.nozominetworks.com/).
@@ -299,10 +342,9 @@ While this repository is public to demo the action, we strongly suggest you run 
 
 ## Todo
 
-Build Actions For:
-
-- Expanse
-- MS Defender ATP
+- Build Actions For:
+  - Expanse
+- Better Documention
 
 ## More Information
 
