@@ -97,7 +97,7 @@ As configured this action will run every hour, and upload data to the [Kenna API
 
 For this example, you will need to configure [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
 
-- snyk_api_secret
+- bitsight_api_secret
 - kenna_api_key
 
 ```yaml
