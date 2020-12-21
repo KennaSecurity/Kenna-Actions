@@ -7,7 +7,7 @@ This is a GitHub Action for invoking the [Kenna Toolkit](https://github.com/Kenn
 
 We will add more example workflows to this section as they are tested and verified.
 
-### AWS GurardDuty
+## AWS GurardDuty
 
 This example action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from the [AWS GuardDuty][(https://aws.amazon.com/inspector/](https://aws.amazon.com/guardduty/)) run inside your AWS environment.
 
@@ -47,7 +47,7 @@ jobs:
         kenna_api_key=: "${{secrets.kenna_api_key}}"
 ```
 
-### AWS Inspector
+## AWS Inspector
 
 As configured this action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from the [AWS Inspector](https://aws.amazon.com/inspector/) run inside your AWS environment.
 
@@ -91,7 +91,7 @@ For demonstration purposes, this example runs in this repo hourly.
 
 ![Kenna-Inspector-Action](https://github.com/KennaPublicSamples/Kenna-Action/workflows/Kenna-Action/badge.svg)
 
-### Security Scorecard
+## Security Scorecard
 
 As configured this action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [Security Scorecard](https://www.securityscorecard.com/).
 
