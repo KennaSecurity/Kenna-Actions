@@ -20,8 +20,9 @@ jobs:
         ruby-version: 2.6
     - name: Install dependencies
       run: bundle install --without development test
-    - name:  Run RiskIQ
-      run : exec bundle exec ruby toolkit.rb task=security_scorecard ssc_api_key=${SSC_API_KEY} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
+    - name:  Run Toolkit
+      run : exec bundle exec ruby toolkit.rb task=riskiq riskiq_api_key=${riskiq_api_key} riskiq_api_secret=${riskiq_api_secret} riskiq_create_ssl_misconfigs=NO riskiq_create_open_ports=NO riskiq_create_cves=YES kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
       env:
-        SSC_API_KEY=: "${{secrets.SSC_API_KEY}}"
+        riskiq_api_key=: "${{secrets.riskiq_api_key}}"
+        riskiq_api_secret=: "${{secrets.riskiq_api_secret}"
         kenna_api_key=: "${{secrets.kenna_api_key}}"
