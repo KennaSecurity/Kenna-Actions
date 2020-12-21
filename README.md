@@ -134,6 +134,17 @@ jobs:
 
 While this repository is public to demo the action, we strongly suggest you run this in a [private repository](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/setting-repository-visibility) to stop publicly exposing the logs which may contain hostnames and vulnerability data.
 
+## Todo
+
+Build Actions For:
+
+- Bitsight
+- Expanse
+- MS Defender ATP
+- Nozomi
+- Riskiq
+- Snyk
+
 ## More Information
 
 For documentation on the Kenna Toolkit itself, including other output capabilities, see the [Kenna Toolkit](https://github.com/KennaPublicSamples/toolkit).
