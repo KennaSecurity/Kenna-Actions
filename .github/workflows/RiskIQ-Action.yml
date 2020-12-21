@@ -24,5 +24,5 @@ jobs:
       run : exec bundle exec ruby toolkit.rb task=riskiq riskiq_api_key=${riskiq_api_key} riskiq_api_secret=${riskiq_api_secret} riskiq_create_ssl_misconfigs=NO riskiq_create_open_ports=NO riskiq_create_cves=YES kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
       env:
         riskiq_api_key=: "${{secrets.riskiq_api_key}}"
-        riskiq_api_secret=: "${{secrets.riskiq_api_secret}"
+        riskiq_api_secret=: "${{secrets.riskiq_api_secret}}"
         kenna_api_key=: "${{secrets.kenna_api_key}}"
