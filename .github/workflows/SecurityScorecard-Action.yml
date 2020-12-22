@@ -1,4 +1,4 @@
-name: RiskIQ-Action
+name: Security-Scorecard-Action
 
 on:
   schedule:
