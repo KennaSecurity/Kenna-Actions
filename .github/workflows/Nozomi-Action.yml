@@ -2,7 +2,7 @@ name: Nozomi-Action
 
 on:
   schedule:
-    - cron: "50 * * * *"
+    - cron: "50 0 * * *"
     # Schedule Configuration From Github Actions. 
     # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#scheduled-events
   push:
