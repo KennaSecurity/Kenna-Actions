@@ -26,5 +26,5 @@ jobs:
     - name:  Run Toolkit
       run : exec bundle exec ruby toolkit.rb task=snyk snyk_api_secret=${snyk_api_secret} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164423 kenna_api_key=${kenna_api_key} -v
       env:
-        snyk_api_secret=: "${{secrets.snyk_api_secret}}"
+        snyk_api_secret=: "${{secrets.SNYK_API_TOKEN}}"
         kenna_api_key=: "${{secrets.kenna_api_key}}"
