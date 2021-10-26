@@ -1,7 +1,7 @@
 
 # GitHub Action for Kenna Toolkit
 
-This is a GitHub Action for invoking the [Kenna Toolkit](https://github.com/KennaPublicSamples/toolkit) and uploading data  APIs to Kenna.
+This is a GitHub action to invoke the [Kenna Toolkit](https://github.com/KennaPublicSamples/toolkit) and upload data  APIs to Kenna.
 
 ## Example Workflows
 
@@ -9,7 +9,7 @@ We will add more example workflows to this section as they are tested and verifi
 
 ## AWS GurardDuty
 
-This example action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from the [AWS GuardDuty][(https://aws.amazon.com/inspector/](https://aws.amazon.com/guardduty/)) run inside your AWS environment.
+This example action will run every hour and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from the [AWS GuardDuty][(https://aws.amazon.com/inspector/](https://aws.amazon.com/guardduty/)) run inside your AWS environment.
 
 For this example, you will need to configure [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
 
@@ -17,7 +17,7 @@ For this example, you will need to configure [encrypted secrets](https://docs.gi
 - aws_secret_key
 - kenna_api_key
 
-```yaml
+```YAML
 
 name: Inspector-Action
 
@@ -49,7 +49,7 @@ jobs:
 
 ## AWS Inspector
 
-As configured this action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from the [AWS Inspector](https://aws.amazon.com/inspector/) run inside your AWS environment.
+As configured, this action will run every hour and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from the [AWS Inspector](https://aws.amazon.com/inspector/) run inside your AWS environment.
 
 For this example, you will need to configure [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
 
@@ -57,7 +57,7 @@ For this example, you will need to configure [encrypted secrets](https://docs.gi
 - aws_secret_key
 - kenna_api_key
 
-```yaml
+```YAML
 
 name: Inspector-Action
 
@@ -93,15 +93,15 @@ For demonstration purposes, this example runs in this repo hourly.
 
 ## BitSight
 
-As configured this action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [BitSight](https://www.bitsight.com/).
+As configured, this action will run every hour and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [BitSight](https://www.bitsight.com/).
 
 For this example, you will need to configure [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
 
 - bitsight_api_secret
 - kenna_api_key
 
-```yaml
-name: Bitsight-Action
+```YAML
+name: BitSight-Action
 
 on:
   schedule:
@@ -132,14 +132,14 @@ jobs:
 
 ## Expanse
 
-As configured this action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [Expanse](https://expanse.co/).
+As configured, this action will run every hour and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [Expanse](https://expanse.co/).
 
 For this example, you will need to configure [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
 
 - expanse_api_key
 - kenna_api_key
 
-```yaml
+```YAML
 name: Expanse-Action
 
 on:
@@ -171,7 +171,7 @@ jobs:
 
 ## Microsoft Defender ATP
 
-As configured this action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [Microsoft Defender ATP](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
+As configured, this action will run every hour and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [Microsoft Defender ATP](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
 
 For this example, you will need to configure [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
 
@@ -180,7 +180,7 @@ For this example, you will need to configure [encrypted secrets](https://docs.gi
 - atp_tenant_id
 - kenna_api_key
 
-```yaml
+```YAML
 name: MS-Defender-ATP-Action
 
 on:
@@ -214,7 +214,7 @@ jobs:
 
 ## Nozomi Networks
 
-As configured this action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [Nozomi Networks](https://www.nozominetworks.com/).
+As configured, this action will run every hour and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [Nozomi Networks](https://www.nozominetworks.com/).
 
 For this example, you will need to configure [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
 
@@ -223,7 +223,7 @@ For this example, you will need to configure [encrypted secrets](https://docs.gi
 - nozomi_password
 - kenna_api_key
 
-```yaml
+```YAML
 name: Nozomi-Action
 
 on:
@@ -257,7 +257,7 @@ jobs:
 
 ## Security Scorecard
 
-As configured this action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [Security Scorecard](https://www.securityscorecard.com/).
+As configured, this action will run every hour and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [Security Scorecard](https://www.securityscorecard.com/).
 
 For this example, you will need to configure [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
 
@@ -265,7 +265,7 @@ For this example, you will need to configure [encrypted secrets](https://docs.gi
 - aws_secret_key
 - kenna_api_key
 
-```yaml
+```YAML
 
 name: Security-Scorecard-Action
 
@@ -296,7 +296,7 @@ jobs:
 
 ## Snyk
 
-As configured this action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [Snyk](https://snyk.io/).
+As configured, this action will run every hour and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [Snyk](https://snyk.io/).
 
 For this example, you will need to configure [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
 
@@ -336,7 +336,7 @@ jobs:
 
 ## RiskIQ
 
-As configured this action will run every hour, and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [RiskIQ](https://www.riskiq.com/).
+As configured, this action will run every hour and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [RiskIQ](https://www.riskiq.com/).
 
 For this example, you will need to configure [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
 
@@ -344,7 +344,7 @@ For this example, you will need to configure [encrypted secrets](https://docs.gi
 - riskiq_api_secret
 - kenna_api_key
 
-```yaml
+```YAML
 name: RiskIQ-Action
 
 on:
@@ -381,7 +381,7 @@ While this repository is public to demo the action, we strongly suggest you run 
 
 ## Todo
 
-- Better Documention
+- Better Documentation
 
 ## More Information
 
