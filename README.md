@@ -1,5 +1,5 @@
 
-# GitHub Action for Kenna Toolkit
+# GitHub Actions for Kenna Toolkit
 
 This is a GitHub action to invoke the [Kenna Toolkit](https://github.com/KennaPublicSamples/toolkit) and upload data  APIs to Kenna.
 
