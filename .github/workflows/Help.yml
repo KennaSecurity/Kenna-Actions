@@ -24,6 +24,6 @@ jobs:
         ruby-version: 2.6
     - name: Install dependencies
       run: bundle install --without development test
-    - name:  Run Toolkit --task=help
-      run : ruby toolkit.rb 
+    - name:  Run Toolkit 
+      run : ruby toolkit.rb --task=help
       
