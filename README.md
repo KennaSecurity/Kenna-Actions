@@ -375,6 +375,150 @@ jobs:
         kenna_api_key=: "${{secrets.kenna_api_key}}"
 ```
 
+## GitHub-CodeScanning-Action
+
+As configured, this action will run every hour and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [GitHub Code Scanning](https://docs.github.com/en/code-security/code-scanning).
+
+For this example, you will need to configure [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
+
+- GH_TOKEN
+- GH_USERNAME
+- GH_REPOS
+- KENNA_API_KEY
+- KENNA_CONNECTOR_ID
+- KENNA_API_HOST
+
+```YAML
+
+name: GitHub-CodeScanning-Action
+
+on:
+  schedule:
+    - cron: "25 0 * * *"
+  push:
+    branches:
+      - main
+    
+jobs:
+   Kenna-Action:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Toolkit Repo
+      uses: actions/checkout@v2
+      with:
+        repository: KennaSecurity/toolkit
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+    - name: Install dependencies
+      run: bundle install --without development test
+    - name: Run Toolkit
+      run : exec bundle exec ruby toolkit.rb task=github_code_scanning github_token=${GH_TOKEN} kenna_connector_id=${KENNA_CONNECTOR_ID} github_username=${GH_USERNAME} kenna_api_host=${KENNA_API_HOST} kenna_api_key=${KENNA_API_KEY} github_repositories=${GH_REPOS}
+      env:
+        GH_TOKEN: "${{secrets.GH_TOKEN}}"
+        GH_USERNAME: "${{secrets.GH_USERNAME}}"
+        GH_REPOS: "${{secrets.GH_REPOS}}"
+        KENNA_API_KEY: "${{secrets.KENNA_API_KEY}}"
+        KENNA_CONNECTOR_ID: "${{secrets.KENNA_CONNECTOR_ID}}"
+        KENNA_API_HOST:  "${{secrets.KENNA_API_HOST}}"
+```
+
+## GitHub-Dependabot-Action
+
+As configured, this action will run every hour and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [GitHub Dependabot](https://docs.github.com/en/code-security/dependabot).
+
+For this example, you will need to configure [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
+
+- GH_TOKEN
+- GH_ORG_NAME
+- KENNA_API_KEY
+- KENNA_CONNECTOR_ID
+- KENNA_API_HOST
+
+```YAML
+
+name: GitHub-Dependabot-Action
+
+on:
+  schedule:
+    - cron: "25 0 * * *"
+  push:
+    branches:
+      - main
+  
+jobs:
+   Kenna-Action:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Toolkit Repo
+      uses: actions/checkout@v2
+      with:
+        repository: KennaSecurity/toolkit
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+    - name: Install dependencies
+      run: bundle install --without development test
+    - name: Run Toolkit
+      run : exec bundle exec ruby toolkit.rb task=github_dependabot github_token=${GH_TOKEN} github_organization_name=${GH_ORG_NAME} kenna_connector_id=${KENNA_CONNECTOR_ID} kenna_api_host=${KENNA_API_HOST} kenna_api_key=${KENNA_API_KEY}
+      env:
+        GH_TOKEN: "${{secrets.GH_TOKEN}}"
+        GH_ORG_NAME: "${{secrets.GH_ORG_NAME}}"
+        KENNA_API_KEY: "${{secrets.KENNA_API_KEY}}"
+        KENNA_CONNECTOR_ID: "${{secrets.KENNA_CONNECTOR_ID}}"
+        KENNA_API_HOST:  "${{secrets.KENNA_API_HOST}}"
+```
+
+## GitHub-SecretScanning-Action
+
+As configured, this action will run every hour and upload data to the [Kenna API](https://apidocs.kennasecurity.com/reference) from [GitHub Secret Scanning](https://docs.github.com/en/code-security/secret-scanning/about-secret-scanning).
+
+For this example, you will need to configure [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets ) in your repository for the following variables:
+
+- GH_TOKEN
+- GH_USERNAME
+- GH_REPOS
+- KENNA_API_KEY
+- KENNA_CONNECTOR_ID
+- KENNA_API_HOST
+
+```YAML
+name: GitHub-SecretScanning-Action
+
+on:
+  schedule:
+    - cron: "25 0 * * *"
+  push:
+    branches:
+      - main
+  
+jobs:
+   Kenna-Action:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Toolkit Repo
+      uses: actions/checkout@v2
+      with:
+        repository: KennaSecurity/toolkit
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+    - name: Install dependencies
+      run: bundle install --without development test
+    - name: Run Toolkit
+      run : exec bundle exec ruby toolkit.rb task=github_secret_scanning github_token=${GH_TOKEN} kenna_connector_id=${KENNA_CONNECTOR_ID} github_username=${GH_USERNAME} kenna_api_host=${KENNA_API_HOST} kenna_api_key=${KENNA_API_KEY} github_repositories=${GH_REPOS}
+      env:
+        GH_TOKEN: "${{secrets.GH_TOKEN}}"
+        GH_USERNAME: "${{secrets.GH_USERNAME}}"
+        GH_REPOS: "${{secrets.GH_REPOS}}"
+        KENNA_API_KEY: "${{secrets.KENNA_API_KEY}}"
+        KENNA_CONNECTOR_ID: "${{secrets.KENNA_CONNECTOR_ID}}"
+        KENNA_API_HOST:  "${{secrets.KENNA_API_HOST}}"
+```
+
 ## Important Considerations
 
 While this repository is public to demo the action, we strongly suggest you run this in a [private repository](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/setting-repository-visibility) to stop publicly exposing the logs which may contain hostnames and vulnerability data.
