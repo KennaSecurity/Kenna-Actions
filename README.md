@@ -43,8 +43,8 @@ jobs:
       run : exec bundle exec ruby toolkit.rb  task=aws_guardduty aws_access_key=${aws_access_key} aws_secret_key=${aws_secret_key} kenna_api_host=api.kennasecurity.com kenna_connector_id=156863 kenna_api_key=${kenna_api_key} -v
       env:
         aws_access_key: "${{secrets.aws_access_key}}"
-        aws_secret_key=: "${{secrets.aws_secret_key}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
+        aws_secret_key: "${{secrets.aws_secret_key}}"
+        kenna_api_key: "${{secrets.kenna_api_key}}"
 ```
 
 ## AWS Inspector
@@ -83,8 +83,8 @@ jobs:
       run : exec bundle exec ruby toolkit.rb  task=aws_inspector aws_access_key=${aws_access_key} aws_secret_key=${aws_secret_key} kenna_api_host=api.kennasecurity.com kenna_connector_id=156863 kenna_api_key=${kenna_api_key} -v
       env:
         aws_access_key: "${{secrets.aws_access_key}}"
-        aws_secret_key=: "${{secrets.aws_secret_key}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
+        aws_secret_key: "${{secrets.aws_secret_key}}"
+        kenna_api_key: "${{secrets.kenna_api_key}}"
 ```
 
 For demonstration purposes, this example runs in this repo hourly.
@@ -126,8 +126,8 @@ jobs:
     - name:  Run Toolkit
       run : exec bundle exec ruby toolkit.rb task=bitsight bitsight_api_key=${.bitsight_api_key} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
       env:
-        bitsight_api_key=: "${{secrets.bitsight_api_key}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
+        bitsight_api_key: "${{secrets.bitsight_api_key}}"
+        kenna_api_key: "${{secrets.kenna_api_key}}"
 ```
 
 ## Expanse
@@ -165,8 +165,8 @@ jobs:
     - name:  Run Toolkit
       run : exec bundle exec ruby toolkit.rb task=expanse expanse_api_key=${expanse_api_key} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
       env:
-        expanse_api_key=: "${{secrets.expanse_api_key}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
+        expanse_api_key: "${{secrets.expanse_api_key}}"
+        kenna_api_key: "${{secrets.kenna_api_key}}"
 ```
 
 ## Microsoft Defender ATP
@@ -206,10 +206,10 @@ jobs:
     - name:  Run Toolkit
       run : exec bundle exec rubytask=ms_defender_atp atp_client_id=${atp_client_id}  atp_client_secret=${atp_client_secret} atp_tenant_id=${atp_tenant_id} batch_page_size=1 kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
       env:
-        atp_client_id=: "${{secrets.atp_client_id}}"
-        atp_client_secret=: "${{secrets.atp_client_secret}}"
-        atp_tenant_id=: "${{secrets.atp_tenant_id}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
+        atp_client_id: "${{secrets.atp_client_id}}"
+        atp_client_secret: "${{secrets.atp_client_secret}}"
+        atp_tenant_id: "${{secrets.atp_tenant_id}}"
+        kenna_api_key: "${{secrets.kenna_api_key}}"
 ```
 
 ## Nozomi Networks
@@ -249,10 +249,10 @@ jobs:
     - name:  Run Toolkit
       run : exec bundle exec ruby toolkit.rb task=nozomi nozomi_user=${nozomi_user} nozomi_password=${nozomi_password} nozomi_api_host=${nozomi_api_host} nozomi_page_size=500 kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
       env:
-        nozomi_api_host=: "${{secrets.nozomi_api_host}"
-        nozomi_user=: "${{secrets.nozomi_user}}"
-        nozomi_password=: "${{secrets.nozomi_password}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
+        nozomi_api_host: "${{secrets.nozomi_api_host}"
+        nozomi_user: "${{secrets.nozomi_user}}"
+        nozomi_password: "${{secrets.nozomi_password}}"
+        kenna_api_key: "${{secrets.kenna_api_key}}"
 ```
 
 ## Security Scorecard
@@ -290,8 +290,8 @@ jobs:
     - name:  Run Toolkit
       run : exec bundle exec ruby toolkit.rb task=security_scorecard ssc_api_key=${SSC_API_KEY} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
       env:
-        SSC_API_KEY=: "${{secrets.SSC_API_KEY}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
+        SSC_API_KEY: "${{secrets.SSC_API_KEY}}"
+        kenna_api_key: "${{secrets.kenna_api_key}}"
 ```
 
 ## Snyk
@@ -329,8 +329,8 @@ jobs:
     - name:  Run Toolkit
       run : exec bundle exec ruby toolkit.rb task=snyk snyk_api_secret=${snyk_api_secret} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
       env:
-        snyk_api_secret=: "${{secrets.snyk_api_secret}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
+        snyk_api_secret: "${{secrets.snyk_api_secret}}"
+        kenna_api_key: "${{secrets.kenna_api_key}}"
 
 ```
 
@@ -370,9 +370,9 @@ jobs:
     - name:  Run Toolkit
       run : exec bundle exec ruby toolkit.rb task=riskiq riskiq_api_key=${riskiq_api_key} riskiq_api_secret=${riskiq_api_secret} riskiq_create_ssl_misconfigs=NO riskiq_create_open_ports=NO riskiq_create_cves=YES kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
       env:
-        riskiq_api_key=: "${{secrets.riskiq_api_key}}"
-        riskiq_api_secret=: "${{secrets.riskiq_api_secret}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
+        riskiq_api_key: "${{secrets.riskiq_api_key}}"
+        riskiq_api_secret: "${{secrets.riskiq_api_secret}}"
+        kenna_api_key: "${{secrets.kenna_api_key}}"
 ```
 
 ## GitHub-CodeScanning-Action
