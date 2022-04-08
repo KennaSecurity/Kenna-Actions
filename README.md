@@ -530,3 +530,8 @@ While this repository is public to demo the action, we strongly suggest you run 
 ## More Information
 
 For documentation on the Kenna Toolkit itself, including other output capabilities, see the [Kenna Toolkit](https://github.com/KennaPublicSamples/toolkit).
+
+## Help us become better
+
+When you find an error, please create a GitHub issue with a detailed description of the error. Our team will solve it as
+soon as possible. [Instructions for creating an issue.](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue)
