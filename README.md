@@ -24,27 +24,27 @@ name: Inspector-Action
 on:
   schedule:
     - cron: "0 0 * * *"
-  
+
 jobs:
-   Kenna-Action:
+  Kenna-Action:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Toolkit Repo
-      uses: actions/checkout@v2
-      with:
-        repository: KennaPublicSamples/toolkit
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
-    - name: Install dependencies
-      run: bundle install --without development test
-    - name:  Run Toolkit
-      run : exec bundle exec ruby toolkit.rb  task=aws_guardduty aws_access_key=${aws_access_key} aws_secret_key=${aws_secret_key} kenna_api_host=api.kennasecurity.com kenna_connector_id=156863 kenna_api_key=${kenna_api_key} -v
-      env:
-        aws_access_key: "${{secrets.aws_access_key}}"
-        aws_secret_key=: "${{secrets.aws_secret_key}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
+      - name: Checkout Toolkit Repo
+        uses: actions/checkout@v2
+        with:
+          repository: KennaPublicSamples/toolkit
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install dependencies
+        run: bundle install --without development test
+      - name:  Run Toolkit
+        run : exec bundle exec ruby toolkit.rb  task=aws_guardduty aws_access_key=${aws_access_key} aws_secret_key=${aws_secret_key} kenna_api_host=api.kennasecurity.com kenna_connector_id=156863 kenna_api_key=${kenna_api_key} -v
+        env:
+          aws_access_key: "${{secrets.aws_access_key}}"
+          aws_secret_key: "${{secrets.aws_secret_key}}"
+          kenna_api_key: "${{secrets.kenna_api_key}}"
 ```
 
 ## AWS Inspector
@@ -64,27 +64,27 @@ name: Inspector-Action
 on:
   schedule:
     - cron: "0 0 * * *"
-  
+
 jobs:
-   Kenna-Action:
+  Kenna-Action:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Toolkit Repo
-      uses: actions/checkout@v2
-      with:
-        repository: KennaPublicSamples/toolkit
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
-    - name: Install dependencies
-      run: bundle install --without development test
-    - name:  Run Toolkit
-      run : exec bundle exec ruby toolkit.rb  task=aws_inspector aws_access_key=${aws_access_key} aws_secret_key=${aws_secret_key} kenna_api_host=api.kennasecurity.com kenna_connector_id=156863 kenna_api_key=${kenna_api_key} -v
-      env:
-        aws_access_key: "${{secrets.aws_access_key}}"
-        aws_secret_key=: "${{secrets.aws_secret_key}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
+      - name: Checkout Toolkit Repo
+        uses: actions/checkout@v2
+        with:
+          repository: KennaPublicSamples/toolkit
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install dependencies
+        run: bundle install --without development test
+      - name:  Run Toolkit
+        run : exec bundle exec ruby toolkit.rb  task=aws_inspector aws_access_key=${aws_access_key} aws_secret_key=${aws_secret_key} kenna_api_host=api.kennasecurity.com kenna_connector_id=156863 kenna_api_key=${kenna_api_key} -v
+        env:
+          aws_access_key: "${{secrets.aws_access_key}}"
+          aws_secret_key: "${{secrets.aws_secret_key}}"
+          kenna_api_key: "${{secrets.kenna_api_key}}"
 ```
 
 For demonstration purposes, this example runs in this repo hourly.
@@ -108,26 +108,26 @@ on:
     - cron: "0 * * * *"
     # Schedule Configuration From Github Actions. 
     # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#scheduled-events
-  
+
 jobs:
-   Kenna-Action:
+  Kenna-Action:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Toolkit Repo
-      uses: actions/checkout@v2
-      with:
-        repository: KennaPublicSamples/toolkit
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
-    - name: Install dependencies
-      run: bundle install --without development test
-    - name:  Run Toolkit
-      run : exec bundle exec ruby toolkit.rb task=bitsight bitsight_api_key=${.bitsight_api_key} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
-      env:
-        bitsight_api_key=: "${{secrets.bitsight_api_key}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
+      - name: Checkout Toolkit Repo
+        uses: actions/checkout@v2
+        with:
+          repository: KennaPublicSamples/toolkit
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install dependencies
+        run: bundle install --without development test
+      - name:  Run Toolkit
+        run : exec bundle exec ruby toolkit.rb task=bitsight bitsight_api_key=${.bitsight_api_key} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
+        env:
+          bitsight_api_key: "${{secrets.bitsight_api_key}}"
+          kenna_api_key: "${{secrets.kenna_api_key}}"
 ```
 
 ## Expanse
@@ -147,26 +147,26 @@ on:
     - cron: "0 * * * *"
     # Schedule Configuration From Github Actions. 
     # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#scheduled-events
-  
+
 jobs:
-   Kenna-Action:
+  Kenna-Action:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Toolkit Repo
-      uses: actions/checkout@v2
-      with:
-        repository: KennaPublicSamples/toolkit
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
-    - name: Install dependencies
-      run: bundle install --without development test
-    - name:  Run Toolkit
-      run : exec bundle exec ruby toolkit.rb task=expanse expanse_api_key=${expanse_api_key} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
-      env:
-        expanse_api_key=: "${{secrets.expanse_api_key}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
+      - name: Checkout Toolkit Repo
+        uses: actions/checkout@v2
+        with:
+          repository: KennaPublicSamples/toolkit
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install dependencies
+        run: bundle install --without development test
+      - name:  Run Toolkit
+        run : exec bundle exec ruby toolkit.rb task=expanse expanse_api_key=${expanse_api_key} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
+        env:
+          expanse_api_key: "${{secrets.expanse_api_key}}"
+          kenna_api_key: "${{secrets.kenna_api_key}}"
 ```
 
 ## Microsoft Defender ATP
@@ -188,28 +188,28 @@ on:
     - cron: "0 * * * *"
     # Schedule Configuration From Github Actions. 
     # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#scheduled-events
-  
+
 jobs:
-   Kenna-Action:
+  Kenna-Action:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Toolkit Repo
-      uses: actions/checkout@v2
-      with:
-        repository: KennaPublicSamples/toolkit
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
-    - name: Install dependencies
-      run: bundle install --without development test
-    - name:  Run Toolkit
-      run : exec bundle exec rubytask=ms_defender_atp atp_client_id=${atp_client_id}  atp_client_secret=${atp_client_secret} atp_tenant_id=${atp_tenant_id} batch_page_size=1 kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
-      env:
-        atp_client_id=: "${{secrets.atp_client_id}}"
-        atp_client_secret=: "${{secrets.atp_client_secret}}"
-        atp_tenant_id=: "${{secrets.atp_tenant_id}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
+      - name: Checkout Toolkit Repo
+        uses: actions/checkout@v2
+        with:
+          repository: KennaPublicSamples/toolkit
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install dependencies
+        run: bundle install --without development test
+      - name:  Run Toolkit
+        run : exec bundle exec rubytask=ms_defender_atp atp_client_id=${atp_client_id}  atp_client_secret=${atp_client_secret} atp_tenant_id=${atp_tenant_id} batch_page_size=1 kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
+        env:
+          atp_client_id: "${{secrets.atp_client_id}}"
+          atp_client_secret: "${{secrets.atp_client_secret}}"
+          atp_tenant_id: "${{secrets.atp_tenant_id}}"
+          kenna_api_key: "${{secrets.kenna_api_key}}"
 ```
 
 ## Nozomi Networks
@@ -231,28 +231,28 @@ on:
     - cron: "0 * * * *"
     # Schedule Configuration From Github Actions. 
     # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#scheduled-events
-  
+
 jobs:
-   Kenna-Action:
+  Kenna-Action:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Toolkit Repo
-      uses: actions/checkout@v2
-      with:
-        repository: KennaPublicSamples/toolkit
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
-    - name: Install dependencies
-      run: bundle install --without development test
-    - name:  Run Toolkit
-      run : exec bundle exec ruby toolkit.rb task=nozomi nozomi_user=${nozomi_user} nozomi_password=${nozomi_password} nozomi_api_host=${nozomi_api_host} nozomi_page_size=500 kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
-      env:
-        nozomi_api_host=: "${{secrets.nozomi_api_host}"
-        nozomi_user=: "${{secrets.nozomi_user}}"
-        nozomi_password=: "${{secrets.nozomi_password}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
+      - name: Checkout Toolkit Repo
+        uses: actions/checkout@v2
+        with:
+          repository: KennaPublicSamples/toolkit
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install dependencies
+        run: bundle install --without development test
+      - name:  Run Toolkit
+        run : exec bundle exec ruby toolkit.rb task=nozomi nozomi_user=${nozomi_user} nozomi_password=${nozomi_password} nozomi_api_host=${nozomi_api_host} nozomi_page_size=500 kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
+        env:
+          nozomi_api_host: "${{secrets.nozomi_api_host}"
+          nozomi_user: "${{secrets.nozomi_user}}"
+          nozomi_password: "${{secrets.nozomi_password}}"
+          kenna_api_key: "${{secrets.kenna_api_key}}"
 ```
 
 ## Security Scorecard
@@ -272,26 +272,26 @@ name: Security-Scorecard-Action
 on:
   schedule:
     - cron: "0 * * * *"
-  
+
 jobs:
-   Kenna-Action:
+  Kenna-Action:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Toolkit Repo
-      uses: actions/checkout@v2
-      with:
-        repository: KennaPublicSamples/toolkit
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
-    - name: Install dependencies
-      run: bundle install --without development test
-    - name:  Run Toolkit
-      run : exec bundle exec ruby toolkit.rb task=security_scorecard ssc_api_key=${SSC_API_KEY} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
-      env:
-        SSC_API_KEY=: "${{secrets.SSC_API_KEY}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
+      - name: Checkout Toolkit Repo
+        uses: actions/checkout@v2
+        with:
+          repository: KennaPublicSamples/toolkit
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install dependencies
+        run: bundle install --without development test
+      - name:  Run Toolkit
+        run : exec bundle exec ruby toolkit.rb task=security_scorecard ssc_api_key=${SSC_API_KEY} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
+        env:
+          SSC_API_KEY: "${{secrets.SSC_API_KEY}}"
+          kenna_api_key: "${{secrets.kenna_api_key}}"
 ```
 
 ## Snyk
@@ -311,26 +311,26 @@ on:
     - cron: "0 * * * *"
     # Schedule Configuration From Github Actions. 
     # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#scheduled-events
-  
+
 jobs:
-   Kenna-Action:
+  Kenna-Action:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Toolkit Repo
-      uses: actions/checkout@v2
-      with:
-        repository: KennaPublicSamples/toolkit
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
-    - name: Install dependencies
-      run: bundle install --without development test
-    - name:  Run Toolkit
-      run : exec bundle exec ruby toolkit.rb task=snyk snyk_api_secret=${snyk_api_secret} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
-      env:
-        snyk_api_secret=: "${{secrets.snyk_api_secret}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
+      - name: Checkout Toolkit Repo
+        uses: actions/checkout@v2
+        with:
+          repository: KennaPublicSamples/toolkit
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install dependencies
+        run: bundle install --without development test
+      - name:  Run Toolkit
+        run : exec bundle exec ruby toolkit.rb task=snyk snyk_api_secret=${snyk_api_secret} kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
+        env:
+          snyk_api_secret: "${{secrets.snyk_api_secret}}"
+          kenna_api_key: "${{secrets.kenna_api_key}}"
 
 ```
 
@@ -352,27 +352,27 @@ on:
     - cron: "0 * * * *"
     # Schedule Configuration From Github Actions. 
     # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#scheduled-events
-  
+
 jobs:
-   Kenna-Action:
+  Kenna-Action:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Toolkit Repo
-      uses: actions/checkout@v2
-      with:
-        repository: KennaPublicSamples/toolkit
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
-    - name: Install dependencies
-      run: bundle install --without development test
-    - name:  Run Toolkit
-      run : exec bundle exec ruby toolkit.rb task=riskiq riskiq_api_key=${riskiq_api_key} riskiq_api_secret=${riskiq_api_secret} riskiq_create_ssl_misconfigs=NO riskiq_create_open_ports=NO riskiq_create_cves=YES kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
-      env:
-        riskiq_api_key=: "${{secrets.riskiq_api_key}}"
-        riskiq_api_secret=: "${{secrets.riskiq_api_secret}}"
-        kenna_api_key=: "${{secrets.kenna_api_key}}"
+      - name: Checkout Toolkit Repo
+        uses: actions/checkout@v2
+        with:
+          repository: KennaPublicSamples/toolkit
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install dependencies
+        run: bundle install --without development test
+      - name:  Run Toolkit
+        run : exec bundle exec ruby toolkit.rb task=riskiq riskiq_api_key=${riskiq_api_key} riskiq_api_secret=${riskiq_api_secret} riskiq_create_ssl_misconfigs=NO riskiq_create_open_ports=NO riskiq_create_cves=YES kenna_api_host=api.us.kennasecurity.com kenna_connector_id=164377 kenna_api_key=${kenna_api_key} -v
+        env:
+          riskiq_api_key: "${{secrets.riskiq_api_key}}"
+          riskiq_api_secret: "${{secrets.riskiq_api_secret}}"
+          kenna_api_key: "${{secrets.kenna_api_key}}"
 ```
 
 ## GitHub-CodeScanning-Action
@@ -398,30 +398,30 @@ on:
   push:
     branches:
       - main
-    
+
 jobs:
-   Kenna-Action:
+  Kenna-Action:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Toolkit Repo
-      uses: actions/checkout@v2
-      with:
-        repository: KennaSecurity/toolkit
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
-    - name: Install dependencies
-      run: bundle install --without development test
-    - name: Run Toolkit
-      run : exec bundle exec ruby toolkit.rb task=github_code_scanning github_token=${GH_TOKEN} kenna_connector_id=${KENNA_CONNECTOR_ID} github_username=${GH_USERNAME} kenna_api_host=${KENNA_API_HOST} kenna_api_key=${KENNA_API_KEY} github_repositories=${GH_REPOS}
-      env:
-        GH_TOKEN: "${{secrets.GH_TOKEN}}"
-        GH_USERNAME: "${{secrets.GH_USERNAME}}"
-        GH_REPOS: "${{secrets.GH_REPOS}}"
-        KENNA_API_KEY: "${{secrets.KENNA_API_KEY}}"
-        KENNA_CONNECTOR_ID: "${{secrets.KENNA_CONNECTOR_ID}}"
-        KENNA_API_HOST:  "${{secrets.KENNA_API_HOST}}"
+      - name: Checkout Toolkit Repo
+        uses: actions/checkout@v2
+        with:
+          repository: KennaSecurity/toolkit
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install dependencies
+        run: bundle install --without development test
+      - name: Run Toolkit
+        run : exec bundle exec ruby toolkit.rb task=github_code_scanning github_token=${GH_TOKEN} kenna_connector_id=${KENNA_CONNECTOR_ID} github_username=${GH_USERNAME} kenna_api_host=${KENNA_API_HOST} kenna_api_key=${KENNA_API_KEY} github_repositories=${GH_REPOS}
+        env:
+          GH_TOKEN: "${{secrets.GH_TOKEN}}"
+          GH_USERNAME: "${{secrets.GH_USERNAME}}"
+          GH_REPOS: "${{secrets.GH_REPOS}}"
+          KENNA_API_KEY: "${{secrets.KENNA_API_KEY}}"
+          KENNA_CONNECTOR_ID: "${{secrets.KENNA_CONNECTOR_ID}}"
+          KENNA_API_HOST:  "${{secrets.KENNA_API_HOST}}"
 ```
 
 ## GitHub-Dependabot-Action
@@ -446,29 +446,29 @@ on:
   push:
     branches:
       - main
-  
+
 jobs:
-   Kenna-Action:
+  Kenna-Action:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Toolkit Repo
-      uses: actions/checkout@v2
-      with:
-        repository: KennaSecurity/toolkit
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
-    - name: Install dependencies
-      run: bundle install --without development test
-    - name: Run Toolkit
-      run : exec bundle exec ruby toolkit.rb task=github_dependabot github_token=${GH_TOKEN} github_organization_name=${GH_ORG_NAME} kenna_connector_id=${KENNA_CONNECTOR_ID} kenna_api_host=${KENNA_API_HOST} kenna_api_key=${KENNA_API_KEY}
-      env:
-        GH_TOKEN: "${{secrets.GH_TOKEN}}"
-        GH_ORG_NAME: "${{secrets.GH_ORG_NAME}}"
-        KENNA_API_KEY: "${{secrets.KENNA_API_KEY}}"
-        KENNA_CONNECTOR_ID: "${{secrets.KENNA_CONNECTOR_ID}}"
-        KENNA_API_HOST:  "${{secrets.KENNA_API_HOST}}"
+      - name: Checkout Toolkit Repo
+        uses: actions/checkout@v2
+        with:
+          repository: KennaSecurity/toolkit
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install dependencies
+        run: bundle install --without development test
+      - name: Run Toolkit
+        run : exec bundle exec ruby toolkit.rb task=github_dependabot github_token=${GH_TOKEN} github_organization_name=${GH_ORG_NAME} kenna_connector_id=${KENNA_CONNECTOR_ID} kenna_api_host=${KENNA_API_HOST} kenna_api_key=${KENNA_API_KEY}
+        env:
+          GH_TOKEN: "${{secrets.GH_TOKEN}}"
+          GH_ORG_NAME: "${{secrets.GH_ORG_NAME}}"
+          KENNA_API_KEY: "${{secrets.KENNA_API_KEY}}"
+          KENNA_CONNECTOR_ID: "${{secrets.KENNA_CONNECTOR_ID}}"
+          KENNA_API_HOST:  "${{secrets.KENNA_API_HOST}}"
 ```
 
 ## GitHub-SecretScanning-Action
@@ -493,30 +493,30 @@ on:
   push:
     branches:
       - main
-  
+
 jobs:
-   Kenna-Action:
+  Kenna-Action:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Toolkit Repo
-      uses: actions/checkout@v2
-      with:
-        repository: KennaSecurity/toolkit
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
-    - name: Install dependencies
-      run: bundle install --without development test
-    - name: Run Toolkit
-      run : exec bundle exec ruby toolkit.rb task=github_secret_scanning github_token=${GH_TOKEN} kenna_connector_id=${KENNA_CONNECTOR_ID} github_username=${GH_USERNAME} kenna_api_host=${KENNA_API_HOST} kenna_api_key=${KENNA_API_KEY} github_repositories=${GH_REPOS}
-      env:
-        GH_TOKEN: "${{secrets.GH_TOKEN}}"
-        GH_USERNAME: "${{secrets.GH_USERNAME}}"
-        GH_REPOS: "${{secrets.GH_REPOS}}"
-        KENNA_API_KEY: "${{secrets.KENNA_API_KEY}}"
-        KENNA_CONNECTOR_ID: "${{secrets.KENNA_CONNECTOR_ID}}"
-        KENNA_API_HOST:  "${{secrets.KENNA_API_HOST}}"
+      - name: Checkout Toolkit Repo
+        uses: actions/checkout@v2
+        with:
+          repository: KennaSecurity/toolkit
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install dependencies
+        run: bundle install --without development test
+      - name: Run Toolkit
+        run : exec bundle exec ruby toolkit.rb task=github_secret_scanning github_token=${GH_TOKEN} kenna_connector_id=${KENNA_CONNECTOR_ID} github_username=${GH_USERNAME} kenna_api_host=${KENNA_API_HOST} kenna_api_key=${KENNA_API_KEY} github_repositories=${GH_REPOS}
+        env:
+          GH_TOKEN: "${{secrets.GH_TOKEN}}"
+          GH_USERNAME: "${{secrets.GH_USERNAME}}"
+          GH_REPOS: "${{secrets.GH_REPOS}}"
+          KENNA_API_KEY: "${{secrets.KENNA_API_KEY}}"
+          KENNA_CONNECTOR_ID: "${{secrets.KENNA_CONNECTOR_ID}}"
+          KENNA_API_HOST:  "${{secrets.KENNA_API_HOST}}"
 ```
 
 ## Important Considerations
